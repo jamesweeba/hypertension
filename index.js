@@ -7,17 +7,27 @@ const pgstream = require('./src/utils/pgstream');
 const dbConfig = {
   postgresdb: {
     local: {
-      host: process.env.HOST || 'localhost',
-      port: process.env.PORT || 5432,
-      database: process.env.DATABASE || 'mydatabase',
-      user: process.env.USER || 'myuser',
-      password: process.env.PASWWORD || 'mypassword',
+      host:'44.198.162.244'||'localhost',
+      port: 5432,
+      database:'hypertension_db'||'mydatabase',
+      user: 'hypertension_db'||'myuser',
+      password: 'POSTGRES-DBpass'||'mypassword',
       connectionTimeoutMillis: 20000,
       idleTimeoutMillis: 10000,
       max: 200
     }
   }
 };
+
+
+/*
+ST: 44.198.162.244
+      PORT: 5432
+      DATABASE: hypertension_db
+      USER: hypertension_db
+      PASSWORD: POSTGRES-DBpass
+
+*/
 
 
 
