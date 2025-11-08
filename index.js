@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 1800;
+const port =  1800;
 const n8nRoutes = require('./src/n8n/routes');
 const pgstream = require('./src/utils/pgstream');
 
