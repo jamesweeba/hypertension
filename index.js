@@ -1,17 +1,17 @@
 const express = require('express');
 const app = express();
-const port = 1800;
+const port = process.env.PORT || 1800;
 const n8nRoutes = require('./src/n8n/routes');
 const pgstream = require('./src/utils/pgstream');
 
 const dbConfig = {
   postgresdb: {
     local: {
-      host: 'localhost',
-      port: 5432,
-      database: 'mydatabase',
-      user: 'myuser',
-      password: 'mypassword',
+      host: process.env.HOST || 'localhost',
+      port: process.env.PORT || 5432,
+      database: process.env.DATABASE || 'mydatabase',
+      user: process.env.USER || 'myuser',
+      password: process.env.PASWWORD || 'mypassword',
       connectionTimeoutMillis: 20000,
       idleTimeoutMillis: 10000,
       max: 200
