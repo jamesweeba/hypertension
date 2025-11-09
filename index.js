@@ -1,17 +1,18 @@
 const express = require('express');
 const app = express();
-const port =  1800;
+const port = 1800;
 const n8nRoutes = require('./src/n8n/routes');
 const pgstream = require('./src/utils/pgstream');
+const infobipRoutes = require('./src/infobip/routes');
 
 const dbConfig = {
   postgresdb: {
     local: {
-      host:'44.198.162.244'||'localhost',
+      host: '44.198.162.244' || 'localhost',
       port: 5432,
-      database:'hypertension_db'||'mydatabase',
-      user: 'hypertension_db'||'myuser',
-      password: 'POSTGRES-DBpass'||'mypassword',
+      database: 'hypertension_db' || 'mydatabase',
+      user: 'hypertension_db' || 'myuser',
+      password: 'POSTGRES-DBpass' || 'mypassword',
       connectionTimeoutMillis: 20000,
       idleTimeoutMillis: 10000,
       max: 200
@@ -19,15 +20,15 @@ const dbConfig = {
   }
 };
 
-
-/*
-ST: 44.198.162.244
+/**
+ * 
+ * HOST: 44.198.162.244
       PORT: 5432
       DATABASE: hypertension_db
       USER: hypertension_db
       PASSWORD: POSTGRES-DBpass
+ */
 
-*/
 
 
 
@@ -44,6 +45,7 @@ app.get('/health', (req, res) => {
 ;
 
 app.use('/api/v1', n8nRoutes);
+app.use('/infobip', infobipRoutes);
 
 // Start the server
 app.listen(port, () => {
