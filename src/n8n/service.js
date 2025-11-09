@@ -9,6 +9,7 @@ function n8nService(db, payload) {
             let sql = `INSERT INTO health_reminder_submissions (email_address,first_name,last_name,date_of_birth,medical_condition,
                        medication_frequency,phone_number,weekly_messages,language) 
              VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING *`;
+
             let { email, first_name, last_name, dob, medical_condition, frequency_of_medication,
                 contact, language, weekly_message
             } = payload;
@@ -27,6 +28,12 @@ function n8nService(db, payload) {
 
 
 }
+
+
+
+
+
+
 
 
 
